@@ -1,0 +1,30 @@
+{# Base HTML, compatible with what Vite expects #}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>{{title or metadata.title}}</title>
+    {% if build.env == "production" %} {# Add any CSS from the main
+    script #} {% viteLinkStylesheetTags "src/client/main.ts" %} {%
+    viteLinkModulePreloadTags "src/client/main.ts" %} {% endif %}
+  </head>
+  <body>
+    {% include "components/nav.html" %} {{ content | safe }} {% if
+    build.env == "production" %} {% viteScriptTag "src/client/main.ts"
+    %} {% else %}
+    <script
+      type="module"
+      src="http://localhost:3000/@vite/client"
+    ></script>
+    <script
+      type="module"
+      src="http://localhost:3000/src/client/main.ts"
+    ></script>
+    {% endif %}
+  </body>
+</html>
