@@ -1,0 +1,11 @@
+---
+layout: layouts/base.njk
+title: Commentcarp
+---
+
+<main class="p-2 m-auto prose lg:p-4">
+  <div class="flex items-center h-32">
+    <h1 class="text-3xl font-bold">{{ heading }}</h1>
+  </div>
+  {{ content | safe }}
+</main>

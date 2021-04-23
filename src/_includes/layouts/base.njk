@@ -14,9 +14,10 @@
     viteLinkModulePreloadTags "src/client/main.ts" %} {% endif %}
   </head>
   <body>
-    {% include "components/nav.html" %} {{ content | safe }} {% if
-    build.env == "production" %} {% viteScriptTag "src/client/main.ts"
-    %} {% else %}
+    {% include "components/nav.html" %} {{ content | safe }} {%
+    include "components/footer.html" %} {% if build.env ==
+    "production" %} {% viteScriptTag "src/client/main.ts" %} {% else
+    %}
     <script
       type="module"
       src="http://localhost:3000/@vite/client"
