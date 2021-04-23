@@ -9,6 +9,7 @@ module.exports = {
     safeList: [],
     content: [
       './src/_includes/**/*.njk',
+      './src/_includes/**/*.html',
       './src/**/*.ts',
       // etc.
     ],
